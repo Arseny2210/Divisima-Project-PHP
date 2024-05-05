@@ -4,7 +4,6 @@ namespace app\core;
 class Router
 {
     private $routes = [];
-
     private $params = [];
     public function __construct()
     {
@@ -24,7 +23,6 @@ class Router
     {
         $url_width_query = trim($_SERVER['REQUEST_URI'], '/');
         $url = $this->removeQueryString($url_width_query);
-        debug($url);
         foreach ($this->routes as $route => $params) {
             if (preg_match($route, $url, $matches)) {
                 $this->params = $params;
@@ -44,11 +42,31 @@ class Router
     {
         if ($this->match()) {
             $controller_name = "\app\controllers\\" . $this->params['controller'] . 'Controller';
-            // $controller_name = "\app\controllers\MainController";
+
             if (class_exists($controller_name)) {
-                echo 'yes';
+                $controller = new $controller_name($this->params);
+                $action_name = $this->params['action'] . 'Action'; // indexAction
+                if (method_exists($controller, $action_name)) {
+                    $controller->$action_name();
+                } else {
+                    if (PROD) {
+                        include 'app/views/404/index.php';
+                    } else {
+                        echo 'Метод ' . $action_name . ' не найден';
+                    }
+                }
             } else {
-                echo 'no';
+                if (PROD) {
+                    include 'app/views/404/index.php';
+                } else {
+                    echo 'Контроллер ' . $controller_name . ' не найден';
+                }
+            }
+        } else {
+            if (PROD) {
+                include 'app/views/404/index.php';
+            } else {
+                echo '404 Page not found';
             }
         }
     }
