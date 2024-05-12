@@ -2,7 +2,7 @@
 <section class="footer-section">
 	<div class="container">
 		<div class="footer-logo text-center">
-			<a href="index.html"><img src="./img/logo-light.png" alt=""></a>
+			<a href="index.html"><img src="<?= WWW ?>/img/logo-light.png" alt=""></a>
 		</div>
 		<div class="row">
 			<div class="col-lg-3 col-sm-6">
@@ -10,7 +10,7 @@
 					<h2>About</h2>
 					<p>Donec vitae purus nunc. Morbi faucibus erat sit amet congue mattis. Nullam frin-gilla faucibus urna, id
 						dapibus erat iaculis ut. Integer ac sem.</p>
-					<img src="img/cards.png" alt="">
+					<img src="<?= WWW ?>/img/cards.png" alt="">
 				</div>
 			</div>
 			<div class="col-lg-3 col-sm-6">
@@ -38,7 +38,7 @@
 					<h2>Questions</h2>
 					<div class="fw-latest-post-widget">
 						<div class="lp-item">
-							<div class="lp-thumb set-bg" data-setbg="img/blog-thumbs/1.jpg"></div>
+							<div class="lp-thumb set-bg" data-setbg="<?= WWW ?>/img/blog-thumbs/1.jpg"></div>
 							<div class="lp-content">
 								<h6>what shoes to wear</h6>
 								<span>Oct 21, 2018</span>
@@ -46,7 +46,7 @@
 							</div>
 						</div>
 						<div class="lp-item">
-							<div class="lp-thumb set-bg" data-setbg="img/blog-thumbs/2.jpg"></div>
+							<div class="lp-thumb set-bg" data-setbg="<?= WWW ?>/img/blog-thumbs/2.jpg"></div>
 							<div class="lp-content">
 								<h6>trends this year</h6>
 								<span>Oct 21, 2018</span>
@@ -106,14 +106,14 @@
 
 
 <!--====== Javascripts & Jquery ======-->
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.slicknav.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.nicescroll.min.js"></script>
-<script src="js/jquery.zoom.min.js"></script>
-<script src="js/jquery-ui.min.js"></script>
-<script src="js/main.js"></script>
+<script src="<?= WWW ?>/js/jquery-3.2.1.min.js"></script>
+<script src="<?= WWW ?>/js/bootstrap.min.js"></script>
+<script src="<?= WWW ?>/js/jquery.slicknav.min.js"></script>
+<script src="<?= WWW ?>/js/owl.carousel.min.js"></script>
+<script src="<?= WWW ?>/js/jquery.nicescroll.min.js"></script>
+<script src="<?= WWW ?>/js/jquery.zoom.min.js"></script>
+<script src="<?= WWW ?>/js/jquery-ui.min.js"></script>
+<script src="<?= WWW ?>/js/main.js"></script>
 
 </body>
 
