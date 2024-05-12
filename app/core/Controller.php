@@ -2,7 +2,7 @@
 namespace app\core;
 
 
-class Controller
+abstract class Controller
 {
 	protected $route;
 	protected $view;
@@ -26,7 +26,7 @@ class Controller
 			if (PROD) {
 				echo 'Не удалось подключиться к Базе данных';
 			} else {
-				echo 'Метод ' . $action_name . ' не найден';
+				echo 'Метод ' . $model_name . ' не найден';
 			}
 		}
 	}

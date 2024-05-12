@@ -5,6 +5,6 @@ class Main
 {
 	public function __construct()
 	{
-		echo "Main Model";
+		// echo "Main Model";
 	}
 }
