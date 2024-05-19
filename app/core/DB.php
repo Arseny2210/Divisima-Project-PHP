@@ -1,8 +1,6 @@
 <?
 namespace app\core;
 
-
-
 class DB
 {
 	protected $db;
@@ -20,7 +18,6 @@ class DB
 			}
 		}
 	}
-
 	private function connect_db($db_config)
 	{
 		try {
@@ -32,5 +29,23 @@ class DB
 				die("Не удалось подключиться: " . $err->getMessage());
 			}
 		}
+	}
+	public function fetchAll($table)
+	{
+		$stmt = $this->db->prepare("SELECT * FROM {$table}");
+		$stmt->execute();
+		return $stmt->fetchAll(\PDO::FETCH_OBJ);
+	}
+	public function fetchOne($id, $table)
+	{
+		$stmt = $this->db->prepare("SELECT * FROM {$table} WHERE id=?");
+		$stmt->execute([$id]);
+		return $stmt->fetch(\PDO::FETCH_OBJ);
+	}
+	public function custom_query($query, $params = null)
+	{
+		$stmt = $this->db->prepare($query);
+		$stmt->execute($params);
+		return $stmt->fetchAll(\PDO::FETCH_OBJ);
 	}
 }

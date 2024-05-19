@@ -7,6 +7,6 @@ abstract class Model
 	public function __construct()
 	{
 		$this->db = new DB();
-		debug($this->db);
 	}
+
 }

@@ -1,3 +1,4 @@
+<? debug($data[0]->url_name); ?>
 <!-- Hero section -->
 <section class="hero-section">
 	<div class="hero-slider owl-carousel">
