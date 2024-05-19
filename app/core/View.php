@@ -12,10 +12,9 @@ class View
 
 		$this->route = $route;
 		$this->view = 'app/views/' . $route['controller'] . '/index.php';
-		// include $this->view;
-		$this->render();
+		// $this->render();
 	}
-	private function render($data = null)
+	public function render($data = null)
 	{
 		$layout = 'app/views/layouts/' . $this->layout . '.php';
 

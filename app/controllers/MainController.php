@@ -7,6 +7,8 @@ class MainController extends Controller
 {
     public function indexAction()
     {
-        // echo __METHOD__;
+        $banners = $this->model->get_banners();
+        $this->view->render($banners);
+
     }
 }
