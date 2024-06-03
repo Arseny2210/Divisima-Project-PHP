@@ -1,5 +1,5 @@
 <?
-namespace App\Core;
+namespace app\core;
 
 abstract class Model
 {
@@ -8,5 +8,4 @@ abstract class Model
 	{
 		$this->db = new DB();
 	}
-
 }

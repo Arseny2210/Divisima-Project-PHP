@@ -1,19 +1,19 @@
 <?
 namespace app\core;
 
-
 abstract class Controller
 {
 	protected $route;
 	protected $view;
 	protected $model;
+
 	public function __construct($route)
 	{
 		$this->route = $route;
 		$this->include_model($route);
 		$this->view = new View($route);
-
 	}
+
 	private function include_model($route)
 	{
 		$model_name = '\app\models\\' . $route['controller'];
@@ -21,9 +21,12 @@ abstract class Controller
 			$this->model = new $model_name;
 		} else {
 			if (PROD) {
-				echo 'Не удалось подключиться к Базе данных';
+				echo '
+        <script> 
+          alert("Не удалось подключиться к БД");
+        </script>';
 			} else {
-				echo 'Метод ' . $model_name . ' не найден';
+				echo 'Модель ' . $model_name . ' не существует';
 			}
 		}
 	}

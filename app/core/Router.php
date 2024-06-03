@@ -1,4 +1,4 @@
-<?php
+<?
 namespace app\core;
 
 class Router
@@ -7,12 +7,11 @@ class Router
     private $params = [];
     public function __construct()
     {
-        $routes_arr = require_once 'app/config/routes.php';
+        $routes_arr = require_once "app/config/routes.php";
         foreach ($routes_arr as $route => $params) {
             $this->add_pattern_route($route, $params);
         }
     }
-
     private function add_pattern_route($route, $params)
     {
         $template_route = '#^' . trim($route, '/') . '$#';
@@ -21,8 +20,11 @@ class Router
 
     private function match()
     {
-        $url_width_query = trim($_SERVER['REQUEST_URI'], '/');
-        $url = $this->removeQueryString($url_width_query);
+        // full url: https://www.divisima.com/about/?id=1&name=bob
+        // REQUEST_URI: /about/?id=1&name=bob
+        $url_with_query = trim($_SERVER['REQUEST_URI'], '/'); // about/?id=1&name=bob
+        $url = $this->removeQueryString($url_with_query);
+
         foreach ($this->routes as $route => $params) {
             if (preg_match($route, $url, $matches)) {
                 $this->params = $params;
@@ -35,7 +37,7 @@ class Router
     private function removeQueryString($url)
     {
         $parts = explode('?', $url);
-        return trim($parts[0], '/');
+        return trim($parts[0], '/'); // about
     }
 
     public function run()
@@ -45,7 +47,7 @@ class Router
 
             if (class_exists($controller_name)) {
                 $controller = new $controller_name($this->params);
-                $action_name = $this->params['action'] . 'Action'; // indexAction
+                $action_name = $this->params['action'] . 'Action'; // 'indexAction'
                 if (method_exists($controller, $action_name)) {
                     $controller->$action_name();
                 } else {
@@ -59,7 +61,7 @@ class Router
                 if (PROD) {
                     include 'app/views/404/index.php';
                 } else {
-                    echo 'Контроллер ' . $controller_name . ' не найден';
+                    echo 'Класс ' . $controller_name . ' не найден';
                 }
             }
         } else {
@@ -71,3 +73,5 @@ class Router
         }
     }
 }
+
+
