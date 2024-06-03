@@ -1,3 +1,29 @@
+<<<<<<< HEAD
+<!-- Hero section -->
+<? debug($data->features); ?>
+<section class="hero-section">
+	<div class="hero-slider owl-carousel">
+		<? foreach ($data->banners as $banner): ?>
+			<div class="hs-item set-bg" data-setbg="<?= WWW ?>/img/<?= $banner->url_name ?>">
+				<div class="container">
+					<div class="row">
+						<div class="col-xl-6 col-lg-7 text-white">
+							<span><?= $banner->texts->label; ?></span>
+							<h2><?= $banner->texts->title; ?></h2>
+							<p><?= $banner->texts->desc; ?></p>
+							<a href="#" class="site-btn sb-line">DISCOVER</a>
+							<a href="#" class="site-btn sb-white">ADD TO CART</a>
+						</div>
+					</div>
+					<div class="offer-card text-white">
+						<span>from</span>
+						<h2>$29</h2>
+						<p>SHOP NOW</p>
+					</div>
+				</div>
+			</div>
+		<? endforeach; ?>
+=======
 <? debug($data[0]->url_name); ?>
 <!-- Hero section -->
 <section class="hero-section">
@@ -42,6 +68,7 @@
 				</div>
 			</div>
 		</div>
+>>>>>>> master
 	</div>
 	<div class="container">
 		<div class="slide-num-holder" id="snh-1"></div>
@@ -49,12 +76,27 @@
 </section>
 <!-- Hero section end -->
 
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> master
 <!-- Features section -->
 <section class="features-section">
 	<div class="container-fluid">
 		<div class="row">
+<<<<<<< HEAD
+			<? foreach ($data->features as $feature): ?>
+				<div class="col-md-4 p-0 feature">
+					<div class="feature-inner">
+						<div class="feature-icon">
+							<img src="<?= WWW ?>/img/icons/<?= $feature->url_name; ?>" alt="feature">
+						</div>
+						<h2><?= $feature->texts->title ?></h2>
+					</div>
+				</div>
+			<? endforeach; ?>
+=======
 			<div class="col-md-4 p-0 feature">
 				<div class="feature-inner">
 					<div class="feature-icon">
@@ -79,6 +121,7 @@
 					<h2>Free & fast Delivery</h2>
 				</div>
 			</div>
+>>>>>>> master
 		</div>
 	</div>
 </section>
