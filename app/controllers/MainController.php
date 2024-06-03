@@ -7,6 +7,7 @@ class MainController extends Controller
 {
     public function indexAction()
     {
+<<<<<<< HEAD
         $banners_urls = $this->model->get_banners();
         $features_urls = $this->model->get_features();
 
@@ -26,5 +27,10 @@ class MainController extends Controller
             $item->texts = (object) $data_texts[$ind];
         }
         return $data;
+=======
+        $banners = $this->model->get_banners();
+        $this->view->render($banners);
+
+>>>>>>> master
     }
 }
