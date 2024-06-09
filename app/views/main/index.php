@@ -140,7 +140,7 @@
 				<li><a href="#" data-id="<?= $categorie->id ?>"><?= $categorie->name ?></a></li>
 			<? endforeach; ?>
 		</ul>
-		<div class="row">
+		<div class="row products">
 			<? foreach ($data->products as $product): ?>
 				<div class="col-lg-3 col-sm-6">
 					<div class="product-item" data-id="<? $product->id ?>" data-category="<?= $product->category_id ?>">

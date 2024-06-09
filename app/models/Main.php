@@ -19,9 +19,9 @@ class Main extends Model
 		return $this->db->fetchAll('categories');
 	}
 
-	public function get_products()
+	public function get_products($start, $limit)
 	{
-		return $this->db->custom_query("SELECT * FROM products limit 8");
+		return $this->db->custom_query("SELECT * FROM products limit {$start},{$limit}");
 	}
 
 }
