@@ -1,3 +1,11 @@
+// Переключение категорий и получение товаров по этой категории
+document.querySelector('.product-filter-menu').addEventListener('click', e => {
+	e.preventDefault()
+	if (e.target.matches('a')) {
+		alert(123)
+	}
+})
+
 document.querySelector('.load-more').addEventListener('click', e => {
 	e.target.innerHTML = `Loading... <div class="spinner-border ml-2" role="status">
   <span class="visually-hidden"></span>
@@ -37,6 +45,7 @@ document.querySelector('.load-more').addEventListener('click', e => {
 								<s>$${product.price.replace('.', ',')}</s>
 								<br>
 								$${(product.price - (product.price / 100) * product.discount)
+									.toFixed(2)
 									.toString()
 									.replace('.', ',')}
 							`

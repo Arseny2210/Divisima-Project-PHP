@@ -133,11 +133,12 @@
 <section class="product-filter-section">
 	<div class="container">
 		<div class="section-title">
-			<h2>BROWSE TOP SELLING PRODUCTS</h2>
+			<h2>BROWSE ALL PRODUCTS</h2>
 		</div>
 		<ul class="product-filter-menu">
+			<li><a href="" data-id="0" class="active">ALL</a></li>
 			<? foreach ($data->categories as $categorie): ?>
-				<li><a href="#" data-id="<?= $categorie->id ?>"><?= $categorie->name ?></a></li>
+				<li><a href="" data-id="<?= $categorie->id ?>"><?= $categorie->name ?></a></li>
 			<? endforeach; ?>
 		</ul>
 		<div class="row products">
@@ -159,7 +160,7 @@
 								<? if ($product->discount > 0): ?>
 									<s>$<?= str_replace(".", ",", $product->price) ?></s>
 									<br>
-									<?= str_replace(".", ",", ($product->price - ($product->price / 100 * $product->discount))) ?>
+									$<?= number_format(($product->price - ($product->price / 100 * $product->count)), 2, ".", ","); ?>
 								<? else: ?>
 									$<?= str_replace(".", ",", $product->price) ?>
 								<? endif; ?>
