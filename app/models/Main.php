@@ -13,4 +13,20 @@ class Main extends Model
 	{
 		return $this->db->custom_query("SELECT url_name FROM assets WHERE type_id=2");
 	}
+
+	public function get_categories()
+	{
+		return $this->db->fetchAll('categories');
+	}
+
+	public function get_products($start, $limit)
+	{
+		return $this->db->custom_query("SELECT * FROM products LIMIT {$limit} OFFSET {$start}");
+	}
+
+	public function get_category_products($category_id, $start, $limit)
+	{
+		return $this->db->custom_query("SELECT * FROM products WHERE category_id=? LIMIT {$limit} OFFSET {$start}", [$category_id]);
+	}
+
 }
