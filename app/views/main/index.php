@@ -143,13 +143,13 @@
 		</ul>
 		<div class="row products">
 			<? foreach ($data->products as $product): ?>
-				<div class="col-lg-3 col-sm-6">
-					<div class="product-item" data-id="<? $product->id ?>" data-category="<?= $product->category_id ?>">
+				<div class="col-lg-3 col-sm-6 product-wrapper">
+					<div class="product-item" data-id="<?= $product->id ?>" data-category="<?= $product->category_id ?>">
 						<div class="pi-pic">
 							<? if ($product->discount > 0): ?>
 								<div class="tag-sale">ON SALE</div>
 							<? endif; ?>
-							<img src="<?= WWW ?>/img/product/<?= $product->image ?>" alt="">
+							<img src="<?= WWW ?>/img/product/<?= $product->image ?>" alt="product">
 							<div class="pi-links">
 								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
@@ -163,7 +163,7 @@
 									$<?= number_format(($product->price - ($product->price / 100 * $product->count)), 2, ".", ","); ?>
 								<? else: ?>
 									$<?= str_replace(".", ",", $product->price) ?>
-								<? endif; ?>
+								<? endif ?>
 							</h6>
 							<p><?= $product->name ?> </p>
 						</div>
@@ -171,7 +171,7 @@
 				</div>
 			<? endforeach; ?>
 		</div>
-		<div class="text-center pt-5">
+		<div class="text-center pt-5 load-more-wrapper">
 			<button class="site-btn sb-line sb-dark load-more">LOAD MORE</button>
 		</div>
 	</div>

@@ -21,7 +21,12 @@ class Main extends Model
 
 	public function get_products($start, $limit)
 	{
-		return $this->db->custom_query("SELECT * FROM products limit {$start},{$limit}");
+		return $this->db->custom_query("SELECT * FROM products LIMIT {$limit} OFFSET {$start}");
+	}
+
+	public function get_category_products($category_id, $start, $limit)
+	{
+		return $this->db->custom_query("SELECT * FROM products WHERE category_id=? LIMIT {$limit} OFFSET {$start}", [$category_id]);
 	}
 
 }

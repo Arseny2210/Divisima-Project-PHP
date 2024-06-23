@@ -5,8 +5,8 @@ return [
         'action' => 'index'
     ],
     // Fetch routes
-    PATH . "productsHandler" => [
+    PATH . "categoryProductsHandler" => [
         'controller' => 'main',
-        'action' => 'productsHandler'
-    ]
+        'action' => 'categoryProductsHandler'
+    ],
 ];
