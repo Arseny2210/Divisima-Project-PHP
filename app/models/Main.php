@@ -29,4 +29,8 @@ class Main extends Model
 		return $this->db->custom_query("SELECT * FROM products WHERE category_id=? LIMIT {$limit} OFFSET {$start}", [$category_id]);
 	}
 
+	public function get_hot_products($hot)
+	{
+		return $this->db->custom_query("SELECT * FROM products WHERE hot >= {$hot}");
+	}
 }

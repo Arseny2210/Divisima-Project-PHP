@@ -10,17 +10,19 @@ class MainController extends Controller
 
     public function indexAction()
     {
+        include LIB . '/texts/main.php';
+
         $banners_urls = $this->model->get_banners();
         $features_urls = $this->model->get_features();
         $categories = $this->model->get_categories();
         $products = $this->model->get_products($this->start, $this->limit);
-
-        include LIB . '/texts/main.php';
+        $hot = 4;
+        $hot_products = $this->model->get_hot_products($hot);
 
         $banners = $this->add_object_texts($banners_urls, $banners_texts);
         $features = $this->add_object_texts($features_urls, $features_texts);
 
-        $data = compact('banners', 'features', 'categories', 'products');
+        $data = compact('banners', 'features', 'categories', 'products', 'hot_products');
         $this->view->render((object) $data);
     }
 
