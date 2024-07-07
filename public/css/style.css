@@ -917,7 +917,7 @@ ol {
 }
 
 .product-item .pi-text p {
-	font-size: 16px;
+	font-size: 15px;
 	color: #111111;
 	margin-bottom: 0;
 }
@@ -963,6 +963,28 @@ ol {
 .product-filter-menu li a.active {
 	background-color: #f51167;
 	color: #fff;
+}
+
+.products-blur {
+	position: relative;
+}
+
+.products-blur::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.885);
+}
+
+.products-spinner {
+	z-index: 1;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 /* ----------------

@@ -45,13 +45,13 @@
 				<div class="row">
 					<div class="col-lg-2 text-center text-lg-left">
 						<!-- logo -->
-						<a href="./index.html" class="site-logo">
+						<a href="/" class="site-logo">
 							<img src="<?= WWW ?>/img/logo.png" alt="">
 						</a>
 					</div>
 					<div class="col-xl-6 col-lg-5">
-						<form class="header-search-form">
-							<input type="text" placeholder="Search on divisima ....">
+						<form class="header-search-form" method="get" action="/search">
+							<input type="text" name="product" placeholder="Search on divisima ....">
 							<button><i class="flaticon-search"></i></button>
 						</form>
 					</div>

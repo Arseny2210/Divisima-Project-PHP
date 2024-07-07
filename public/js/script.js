@@ -80,6 +80,17 @@ function categoryProductsHandler(categoryId, start, loadMore) {
 			: { categoryId: Number(categoryId) }
 	)
 
+	document.querySelector('.products').classList.add('products-blur')
+
+	const spinner = `
+	<div class="products-spinner">
+		<div class="spinner-border spinner-border-lg ml-2" role="status">
+			<span class="visually-hidden"></span>
+		</div>
+	</div>
+	`
+	document.querySelector('.products').insertAdjacentHTML('beforeend', spinner)
+
 	fetch('categoryProductsHandler', {
 		method: 'POST',
 		headers: {
@@ -127,5 +138,6 @@ function categoryProductsHandler(categoryId, start, loadMore) {
 			if (loadMore) {
 				loadMore.textContent = 'LOAD MORE'
 			}
+			document.querySelector('.products').classList.remove('products-blur')
 		})
 }
